@@ -7,20 +7,37 @@ type Theme = "light" | "dark" | "auto";
 export const ThemeToggle = () => {
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = localStorage.getItem("theme") as Theme;
-    return saved || "dark";
+    return saved || "auto";
   });
 
   useEffect(() => {
     const root = document.documentElement;
     
-    if (theme === "auto") {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      root.classList.toggle("dark", prefersDark);
-    } else {
-      root.classList.toggle("dark", theme === "dark");
-    }
+    const applyTheme = () => {
+      if (theme === "auto") {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (prefersDark) {
+          root.classList.add("dark");
+        } else {
+          root.classList.remove("dark");
+        }
+      } else if (theme === "dark") {
+        root.classList.add("dark");
+      } else {
+        root.classList.remove("dark");
+      }
+    };
     
+    applyTheme();
     localStorage.setItem("theme", theme);
+
+    // Listen for system theme changes when in auto mode
+    if (theme === "auto") {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      const handler = () => applyTheme();
+      mediaQuery.addEventListener("change", handler);
+      return () => mediaQuery.removeEventListener("change", handler);
+    }
   }, [theme]);
 
   const cycleTheme = () => {
