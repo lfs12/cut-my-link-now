@@ -2,6 +2,8 @@ import { StatsHeader } from "@/components/StatsHeader";
 import { URLShortener } from "@/components/URLShortener";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Link2, Shield, Zap, BarChart3 } from "lucide-react";
+import { useEffect } from "react";
+
 
 const Index = () => {
   return (

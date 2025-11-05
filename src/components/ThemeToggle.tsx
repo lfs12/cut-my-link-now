@@ -1,4 +1,4 @@
-import { Moon, Sun, Monitor } from "lucide-react";
+import { Sun, Moon, Monitor } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
@@ -51,6 +51,8 @@ export const ThemeToggle = () => {
     light: <Sun className="h-5 w-5" />,
     dark: <Moon className="h-5 w-5" />,
     auto: <Monitor className="h-5 w-5" />,
+    //if Cannot find Monitor icon in lucide-react, you can replace it with any other icon or a custom SVG
+    
   };
 
   return (
