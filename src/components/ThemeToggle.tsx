@@ -14,24 +14,19 @@ export const ThemeToggle = () => {
     const root = document.documentElement;
     
     const applyTheme = () => {
+      root.classList.remove("light", "dark");
+      
       if (theme === "auto") {
         const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (prefersDark) {
-          root.classList.add("dark");
-        } else {
-          root.classList.remove("dark");
-        }
-      } else if (theme === "dark") {
-        root.classList.add("dark");
+        root.classList.add(prefersDark ? "dark" : "light");
       } else {
-        root.classList.remove("dark");
+        root.classList.add(theme);
       }
     };
     
     applyTheme();
     localStorage.setItem("theme", theme);
 
-    // Listen for system theme changes when in auto mode
     if (theme === "auto") {
       const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
       const handler = () => applyTheme();
