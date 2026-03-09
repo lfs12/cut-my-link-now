@@ -51,38 +51,38 @@ const Index = () => {
           <StatsHeader />
           <URLShortener />
 
-          {/* Features */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-5xl mx-auto">
-            <div className="text-center p-6 bg-card/30 backdrop-blur-sm rounded-2xl border border-primary/10 hover:border-primary/30 transition-colors">
-              <div className="inline-flex p-4 bg-primary/10 rounded-xl mb-4">
+          {/* Features - usando article para semántica SEO */}
+          <section aria-label="Features" className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-5xl mx-auto">
+            <article className="text-center p-6 bg-card/30 backdrop-blur-sm rounded-2xl border border-primary/10 hover:border-primary/30 transition-colors">
+              <div className="inline-flex p-4 bg-primary/10 rounded-xl mb-4" aria-hidden="true">
                 <Zap className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Lightning Fast</h3>
               <p className="text-muted-foreground">
                 Create short links instantly without any registration required
               </p>
-            </div>
-            
-            <div className="text-center p-6 bg-card/30 backdrop-blur-sm rounded-2xl border border-secondary/10 hover:border-secondary/30 transition-colors">
-              <div className="inline-flex p-4 bg-secondary/10 rounded-xl mb-4">
+            </article>
+
+            <article className="text-center p-6 bg-card/30 backdrop-blur-sm rounded-2xl border border-secondary/10 hover:border-secondary/30 transition-colors">
+              <div className="inline-flex p-4 bg-secondary/10 rounded-xl mb-4" aria-hidden="true">
                 <BarChart3 className="h-8 w-8 text-secondary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Track Analytics</h3>
               <p className="text-muted-foreground">
                 Monitor click counts and see how your links perform in real-time
               </p>
-            </div>
-            
-            <div className="text-center p-6 bg-card/30 backdrop-blur-sm rounded-2xl border border-accent/10 hover:border-accent/30 transition-colors">
-              <div className="inline-flex p-4 bg-accent/10 rounded-xl mb-4">
+            </article>
+
+            <article className="text-center p-6 bg-card/30 backdrop-blur-sm rounded-2xl border border-accent/10 hover:border-accent/30 transition-colors">
+              <div className="inline-flex p-4 bg-accent/10 rounded-xl mb-4" aria-hidden="true">
                 <Shield className="h-8 w-8 text-accent" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Secure & Reliable</h3>
               <p className="text-muted-foreground">
                 Your links are stored securely with 30-day automatic expiration
               </p>
-            </div>
-          </div>
+            </article>
+          </section>
         </main>
 
         {/* Footer */}
